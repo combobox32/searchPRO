@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 16, 2018 at 11:02 AM
+-- Generation Time: Nov 12, 2018 at 06:42 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -18,10 +18,6 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`store` /*!40100 DEFAULT CHARACTER SET latin1 */;
-
-USE `store`;
-
 --
 -- Database: `store`
 --
@@ -29,39 +25,11 @@ USE `store`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Table structure for table `korisnik`
 --
 
-DROP TABLE IF EXISTS `product`;
-CREATE TABLE IF NOT EXISTS `product` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `product_name` varchar(500) NOT NULL,
-  `price` varchar(500) NOT NULL,
-  `category` varchar(500) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `product`
---
-
-INSERT INTO `product` (`id`, `product_name`, `price`, `category`) VALUES
-(1, 'Samsung Galaxy J3 (2017)', '139', 'Cell phone'),
-(2, 'Xiaomi Mi A2 Lite', '177', 'Cell phone'),
-(3, 'Apple Watch Series 4 Sport 44mm', '625', 'Watch'),
-(4, 'Xiaomi Mi Quartz Watch', '95', 'Watch'),
-(5, 'LENOVO IdeaPad 320-15IAP', '400', 'Laptop'),
-(6, 'Apple IPAD', '350', 'Tablet'),
-(7, 'Dell Laptop', '350', 'Laptop');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
+DROP TABLE IF EXISTS `korisnik`;
+CREATE TABLE IF NOT EXISTS `korisnik` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -69,11 +37,39 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `korisnik`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`) VALUES
+INSERT INTO `korisnik` (`id`, `username`, `password`) VALUES
 (1, 'bojana', 'bojana');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `proizvodi`
+--
+
+DROP TABLE IF EXISTS `proizvodi`;
+CREATE TABLE IF NOT EXISTS `proizvodi` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `naziv_proizvoda` varchar(500) NOT NULL,
+  `cena` varchar(500) NOT NULL,
+  `kategorija` varchar(500) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `proizvodi`
+--
+
+INSERT INTO `proizvodi` (`id`, `naziv_proizvoda`, `cena`, `kategorija`) VALUES
+(1, 'Samsung Galaxy J3 (2017)', '139', 'Mobilni telefon'),
+(2, 'Xiaomi Mi A2 Lite', '177', 'Mobilni telefon'),
+(3, 'Apple Watch Series 4 Sport 44mm', '625', 'Sat'),
+(4, 'Xiaomi Mi Quartz Watch', '95', 'Sat'),
+(5, 'LENOVO IdeaPad 320-15IAP', '400', 'Laptop'),
+(6, 'Apple IPAD', '350', 'Tablet'),
+(7, 'Dell Laptop', '350', 'Laptop');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
